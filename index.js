@@ -14,10 +14,11 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 function extractVideoID(url) {
-    const regex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|.+\?v=|.+\&v=|user\/.+\/|embed\/.+\/|v\/.+\/|watch\?.+&v=|.+\?v=|ytscreeningroom\?v=|watch\/|c\/|channel\/|@|user\/.+\/|watch\?.+&v=|e\/|attribution_link\?.+v%3D|shorts\/|embed\/|v\/|youtu\.be\/|embed\/|watch\?vi=|vi\/|user\/.+\/|c\/|channel\/|@|user\/.+\/|watch\?.+&vi=|e\/|attribution_link\?.+vi%3D|shorts\/|embed\/|watch\/|attribution_link\?.+vi%3D|shorts\/|embed\/|youtu\.be\/|e\/|user\/.+\/|c\/|channel\/|@|user\/.+\/|watch\?.+&v=|e\/|attribution_link\?.+v%3D|shorts\/|embed\/|youtu\.be\/|vi\/|watch\/|attribution_link\?.+v%3D|shorts\/|embed\/|youtu\.be\/|v=)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-  }
+  const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:shorts\/|watch\?v=|embed\/|v\/|playlist\?list=|user\/.+\/|c\/|channel\/|attribution_link\?.+v%3D)|youtu\.be\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
+
 
 
   
